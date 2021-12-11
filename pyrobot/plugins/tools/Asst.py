@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Message
 
-@Bot.on_message(filters.command('submit') & filters.private)
+@Client.on_message(filters.command('submit') & filters.private)
 async def report(bot, message):
         if message.reply_to_message:
                                   await bot.send_message(chat_id=ADMIN, text=f"<b>⭕️NEW MESSAGE⭕️\n \n🧿 Name: {message.from_user.mention}\n🧿 User ID:</b> <code>{message.chat.id}</code>")
@@ -12,7 +12,7 @@ async def report(bot, message):
 
                          
         
-@Bot.on_message(filters.command('reply') & filters.private)
+@Client.on_message(filters.command('reply') & filters.private)
 async def replyt(bot, message):
     if message.from_user.id == ADMIN: 
                if message.reply_to_message:
