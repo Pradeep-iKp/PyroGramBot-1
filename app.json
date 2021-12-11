@@ -33,6 +33,10 @@
       "description": "specify command handler that should be used for the plugins",
       "required": false
     }
+    "ADMIN": {
+      "description": "Admin id",
+      "required": false
+    }
   },
   "addons": [{
     "plan": "heroku-postgresql",
