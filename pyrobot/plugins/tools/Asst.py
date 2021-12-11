@@ -1,31 +1,10 @@
 #15-11-2021
 #okbei
-
-             
+            
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Message
 
 
-
-START_TEXT = """
-Hai {},
-Am Sticker id Finder Bot. 
-I can Find I'd of an sticker. Just send me a sticker I would reply with its I'd. 
-"""
-    
-@Bot.on_message(filters.private & filters.command(["hmm"]))
-async def hmm(bot, update):
-    await update.reply_text(
-        text=START_TEXT.format(update.from_user.first_name),
-        disable_web_page_preview=True,
-        reply_markup=START_BUTTONS
-    )
-START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Source Code📕', url='https://t.me/P_Kumar0'), 
-        InlineKeyboardButton('CHANNEL📕', url=f"https://telegram.me/P_Kumar0")
-        ]]
-    )
 
             
 
