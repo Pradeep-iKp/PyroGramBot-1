@@ -3,6 +3,9 @@ import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Message
 
+PM_TXT_ATT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
+PM_MED_ATT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
+
 @Client.on_message(filters.command('submit') & filters.private)
 async def report(bot, message):
         if message.reply_to_message:
@@ -39,7 +42,7 @@ async def pm_text(bot, message):
     reference_id = int(message.chat.id)
     await bot.send_message(
         chat_id=1857338892,
-        text="Hello".format(reference_id, info.first_name, message.text),
+        text=Presets.PM_TXT_ATT.format(reference_id, info.first_name, message.text),
         parse_mode="html"
     )
 
@@ -55,7 +58,7 @@ async def pm_media(bot, message):
         chat_id=1857338892,
         from_chat_id=message.chat.id,
         message_id=message.message_id,
-        caption="Hehe".format(reference_id, info.first_name),
+        caption=Presets.PM_MED_ATT.format(reference_id, info.first_name),
         parse_mode="html"
     )
 
