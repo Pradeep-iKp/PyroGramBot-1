@@ -70,7 +70,6 @@ class Config:
     # message_id for the Pinned Message
     A_PIN_MESSAGE_ID = int(os.environ.get("A_PIN_MESSAGE_ID", "3"))
     #
-    ADMIN = int(os.environ.get("ADMIN"))
     START_IMG = os.environ.get("START_IMG")
     START_MSG = os.environ.get("START_MSG")
     BUTTON_1 = os.environ.get("BUTTON_1")
