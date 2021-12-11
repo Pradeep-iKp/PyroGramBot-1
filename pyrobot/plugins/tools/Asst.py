@@ -14,7 +14,7 @@ I can Find I'd of an sticker. Just send me a sticker I would reply with its I'd.
 """
     
 @Bot.on_message(filters.private & filters.command(["hmm"]))
-async def start(bot, update):
+async def hmm(bot, update):
     await update.reply_text(
         text=START_TEXT.format(update.from_user.first_name),
         disable_web_page_preview=True,
