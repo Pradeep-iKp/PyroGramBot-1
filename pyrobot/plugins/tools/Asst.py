@@ -9,7 +9,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Mes
             
 
 @Bot.on_message(filters.command('submit') & filters.private)
-async def report(bot, message):
+async def report(_, message):
         if message.reply_to_message:
                                   await bot.send_message(chat_id=OWNER_ID, text=f"<b>⭕️NEW MESSAGE⭕️\n \n🧿 Name: {message.from_user.mention}\n🧿 User ID:</b> <code>{message.chat.id}</code>")
                                   await bot.forward_messages(chat_id=OWNER_ID, from_chat_id=message.from_user.id, message_ids=message.reply_to_message.message_id)
@@ -20,7 +20,7 @@ async def report(bot, message):
                          
         
 @Bot.on_message(filters.command('reply') & filters.private)
-async def replyt(bot, message):
+async def replyt(_, message):
     if message.from_user.id == OWNER_ID: 
                if message.reply_to_message:
                                     userid=int(message.text.replace("/reply"," "))
@@ -35,7 +35,7 @@ async def replyt(bot, message):
 
                           
 @Bot.on_message(filters.command('send') & filters.private)
-async def send(bot, message):
+async def send(_, message):
     if message.from_user.id == OWNER_ID: 
                if message.reply_to_message:
                                     chatid=int(message.text.replace("/send"," "))
@@ -49,7 +49,7 @@ async def send(bot, message):
 
                                     
 @Bot.on_message(filters.command('pin') & filters.private)
-async def pin(bot, message):
+async def pin(_, message):
     if message.from_user.id == OWNER_ID: 
                if message.reply_to_message:
                                     chatid=int(message.text.replace("/pin"," "))
@@ -64,7 +64,7 @@ async def pin(bot, message):
 
 
 @Bot.on_message(filters.command('id') & filters.group)
-async def id(bot, message):
+async def id(_, message):
     await message.reply_text(f"<b>➲ Chat ID:</b> <code>{message.chat.id}</code>")
     
 Bot.run()
