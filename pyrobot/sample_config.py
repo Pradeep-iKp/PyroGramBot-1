@@ -70,12 +70,6 @@ class Config:
     # message_id for the Pinned Message
     A_PIN_MESSAGE_ID = int(os.environ.get("A_PIN_MESSAGE_ID", "3"))
     #
-    START_IMG = os.environ.get("START_IMG")
-    START_MSG = os.environ.get("START_MSG")
-    BUTTON_1 = os.environ.get("BUTTON_1")
-    BUTTON_2 = os.environ.get("BUTTON_2")
-    LINK_1 = os.environ.get("LINK_1")
-    LINK_2 = os.environ.get("LINK_2")
     LAYER_FEED_CHAT = os.environ.get("LAYER_FEED_CHAT", None)
     LAYER_UPDATE_INTERVAL = os.environ.get("LAYER_UPDATE_INTERVAL", None)
     LAYER_UPDATE_MESSAGE_CAPTION = os.environ.get(
