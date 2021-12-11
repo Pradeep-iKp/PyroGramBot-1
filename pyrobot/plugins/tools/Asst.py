@@ -7,21 +7,25 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Mes
 
 
 
-@Bot.on_message(filters.command(['start']) & filters.private)
-async def start(bot, message):
-    buttons = [[
-                 InlineKeyboardButton(f'{BUTTON_1}', url=f"{LINK_1}"),
-                 InlineKeyboardButton(f'{BUTTON_2}', url=f"{LINK_2}")
-              ]]
-
-    await message.reply_photo(photo=START_IMG,
-                              caption=START_MSG.format(
-                                      first = message.from_user.first_name,
-                                      last = message.from_user.last_name,
-                                      mention = message.from_user.mention,
-                                      id = message.from_user.id),
-                               reply_markup = InlineKeyboardMarkup(buttons)
-                              )
+START_TEXT = """
+Hai {},
+Am Sticker id Finder Bot. 
+I can Find I'd of an sticker. Just send me a sticker I would reply with its I'd. 
+"""
+    
+@Bot.on_message(filters.private & filters.command(["start"]))
+async def start(bot, update):
+    await update.reply_text(
+        text=START_TEXT.format(update.from_user.first_name),
+        disable_web_page_preview=True,
+        reply_markup=START_BUTTONS
+    )
+START_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('Source Code📕', url='https://t.me/P_Kumar0'), 
+        InlineKeyboardButton('CHANNEL📕', url=f"https://telegram.me/P_Kumar0")
+        ]]
+    )
 
             
 
