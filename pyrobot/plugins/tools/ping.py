@@ -32,7 +32,7 @@ async def help_me(_, message):
     await message.reply_sticker(HELP)
 
 
-@Client.on_message(filters.privat & filters.command(["ping", COMMAND_HAND_LER]) & f_onw_fliter)
+@Client.on_message(filters.private & filters.command(["ping", COMMAND_HAND_LER]) & f_onw_fliter)
 async def ping(_, message):
     start_t = time.time()
     rm = await message.reply_text("...")
