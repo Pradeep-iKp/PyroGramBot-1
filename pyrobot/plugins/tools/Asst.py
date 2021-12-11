@@ -1,7 +1,7 @@
 #15-11-2021
 #okbei
 
-from details import API_ID, API_HASH, BOT_TOKEN, ADMIN, START_IMG, START_MSG, BUTTON_1, BUTTON_2, LINK_1, LINK_2                
+             
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Message
 
