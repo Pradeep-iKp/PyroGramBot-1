@@ -15,10 +15,6 @@ REPO = ("User / Bot is available on GitHub:\n"
         "https://github.com/SpEcHiDe/PyroGramBot")
 # -- Constants End -- #
 
-@Client.on_message(filters.private & filters.command(["start", "help", "alive"]))
-async def help_me(bot, message):
-    await message.reply_text(ALIVE)
-    
 @Client.on_message(
     filters.command(["alive", "start"], COMMAND_HAND_LER) &
     f_onw_fliter
@@ -32,7 +28,7 @@ async def help_me(_, message):
     await message.reply_sticker(HELP)
 
 
-@Client.on_message(filters.private & filters.command(["ping", COMMAND_HAND_LER]) & f_onw_fliter)
+@Client.on_message(filters.command("ping", COMMAND_HAND_LER) & f_onw_fliter)
 async def ping(_, message):
     start_t = time.time()
     rm = await message.reply_text("...")
