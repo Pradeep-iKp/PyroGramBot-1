@@ -40,7 +40,7 @@ CALCULATE_BUTTONS = InlineKeyboardMarkup(
 
 
 
-@Bot.on_message(filters.private & filters.command(["calc", "calculate", "calculator"]))
+@Client.on_message(filters.private & filters.command(["calc", "calculate", "calculator"]))
 async def calculate(bot, update):
     await update.reply_text(
         text=CALCULATE_TEXT,
@@ -50,7 +50,7 @@ async def calculate(bot, update):
     )
 
 
-@Bot.on_callback_query()
+@Client.on_callback_query()
 async def cb_data(bot, update):
         data = update.data
         try:
@@ -73,7 +73,7 @@ async def cb_data(bot, update):
             print(error)
 
 
-@Bot.on_inline_query()
+@Client.on_inline_query()
 async def inline(bot, update):
     if len(update.data) == 0:
         try:
