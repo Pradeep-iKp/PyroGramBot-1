@@ -40,7 +40,7 @@ CALCULATE_BUTTONS = InlineKeyboardMarkup(
 
 
 
-@Client.on_message(filters.private & filters.command(["calc", "calculate", "calculator"]))
+@Client.on_message(filters.command("calc") & filters.private)
 async def calculate(bot, update):
     await update.reply_text(
         text=CALCULATE_TEXT,
